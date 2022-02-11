@@ -278,7 +278,13 @@ VALUES ('Kyle', 'Harwood', 2022, 3.0)
 def problem_six(request):
     
     # Make sure to set this equal to the primary key of the row you just created!
-    student_id = 11
+    new_student = Student.objects.filter(id=11)
+    new_student.update(gpa=3.5)
+
+    return_student = Student.objects.filter(id=11).get()
+    print(f'ID: {return_student.id} Full Name: {return_student.first_name} {return_student.last_name} GPA: {return_student.gpa}')
+    
+    
 
 
 
